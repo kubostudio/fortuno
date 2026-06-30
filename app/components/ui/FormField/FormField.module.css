@@ -1,0 +1,15 @@
+.field {
+    display: grid;
+    gap: 8px;
+    font-weight: 800;
+}
+
+.field span {
+    color: var(--text-main);
+}
+
+.field small {
+    color: var(--text-muted);
+    font-weight: 600;
+    line-height: 1.5;
+}

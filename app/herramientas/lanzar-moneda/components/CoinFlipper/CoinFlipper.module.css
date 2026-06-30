@@ -1,0 +1,9 @@
+.coinTool {
+    display: grid;
+    gap: 24px;
+}
+
+.resultGroup {
+    display: grid;
+    gap: 14px;
+}

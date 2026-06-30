@@ -1,0 +1,37 @@
+.tool {
+    display: grid;
+    gap: 24px;
+}
+
+.modeGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.modeGrid button {
+    min-height: 48px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--text-muted);
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.modeGrid button:hover {
+    border-color: var(--primary);
+    color: var(--text-main);
+}
+
+.activeMode {
+    background: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+}
+
+@media (max-width: 640px) {
+    .modeGrid {
+        grid-template-columns: 1fr;
+    }
+}

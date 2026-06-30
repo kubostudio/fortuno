@@ -1,0 +1,56 @@
+.page {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 72px 24px;
+}
+
+.hero {
+    margin-bottom: 40px;
+}
+
+.hero span {
+    display: inline-flex;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--primary-soft);
+    color: var(--primary-dark);
+    font-weight: 800;
+}
+
+.hero h1 {
+    margin: 20px 0 14px;
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.06em;
+}
+
+.hero p {
+    max-width: 760px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.content {
+    display: grid;
+    gap: 22px;
+}
+
+.content h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    letter-spacing: -0.03em;
+}
+
+.content p {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+.content article {
+    padding: 28px;
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    border: 1px solid var(--border);
+}

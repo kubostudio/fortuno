@@ -1,0 +1,83 @@
+.game {
+    display: grid;
+    gap: 24px;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.options button {
+    min-height: 120px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    color: var(--text-main);
+    font-weight: 900;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    gap: 8px;
+    transition:
+        border-color 180ms ease,
+        transform 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.options button span {
+    font-size: 2.4rem;
+}
+
+.options button:hover:not(:disabled) {
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+}
+
+.options button:disabled {
+    cursor: wait;
+    opacity: 0.75;
+}
+
+.activeOption {
+    border-color: var(--primary) !important;
+    background: var(--primary-soft) !important;
+}
+
+.resultGroup {
+    display: grid;
+    gap: 14px;
+}
+
+.moves {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.moves article {
+    padding: 18px;
+    border-radius: var(--radius-md);
+    background: var(--surface-soft);
+    display: grid;
+    gap: 6px;
+}
+
+.moves span {
+    color: var(--text-muted);
+    font-weight: 800;
+}
+
+.moves strong {
+    font-size: 1.3rem;
+}
+
+@media (max-width: 640px) {
+
+    .options,
+    .moves {
+        grid-template-columns: 1fr;
+    }
+}

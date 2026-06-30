@@ -1,0 +1,168 @@
+.tool {
+    display: grid;
+    gap: 22px;
+}
+
+.modeGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.modeGrid button {
+    min-height: 48px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--text-muted);
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.modeGrid button:hover {
+    border-color: var(--primary);
+    color: var(--text-main);
+}
+
+.activeMode {
+    background: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+}
+
+.tool textarea,
+.tool input[type="number"] {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    color: var(--text-main);
+    transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        background 180ms ease;
+}
+
+.tool textarea {
+    resize: vertical;
+    min-height: 180px;
+    line-height: 1.6;
+}
+
+.tool textarea:focus,
+.tool input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-soft);
+}
+
+.tool textarea:disabled,
+.tool input:disabled {
+    background: var(--surface-soft);
+    cursor: wait;
+    opacity: 0.8;
+}
+
+.checkOption {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    color: var(--text-muted);
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.checkOption input {
+    margin-top: 4px;
+    accent-color: var(--primary);
+}
+
+.summaryGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.summaryGrid div {
+    border-radius: var(--radius-md);
+    background: var(--surface-soft);
+    padding: 16px;
+    display: grid;
+    gap: 4px;
+}
+
+.summaryGrid strong {
+    font-size: 1.4rem;
+    color: var(--text-main);
+}
+
+.summaryGrid span {
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+.error {
+    margin: 0;
+    color: var(--danger);
+    font-weight: 700;
+}
+
+.resultGroup {
+    display: grid;
+    gap: 14px;
+}
+
+.resultList,
+.prizeList {
+    margin: 0;
+    padding-left: 28px;
+    text-align: left;
+}
+
+.resultList li {
+    font-size: clamp(1.6rem, 5vw, 3rem);
+    line-height: 1.5;
+}
+
+.prizeList {
+    width: 100%;
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    display: grid;
+    gap: 14px;
+}
+
+.prizeList li {
+    display: grid;
+    gap: 10px;
+    padding: 18px;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(29, 78, 216, 0.1);
+}
+
+.prizeList span {
+    font-size: 0.9rem;
+    color: var(--primary-dark);
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.prizeList strong {
+    display: block;
+    font-size: clamp(1.15rem, 3vw, 1.6rem);
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+    color: var(--primary-dark);
+    word-break: break-word;
+}
+
+@media (max-width: 640px) {
+
+    .modeGrid,
+    .summaryGrid {
+        grid-template-columns: 1fr;
+    }
+}

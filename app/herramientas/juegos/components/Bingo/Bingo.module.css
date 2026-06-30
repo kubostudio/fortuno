@@ -1,0 +1,92 @@
+.bingo {
+    display: grid;
+    gap: 24px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.stats div {
+    border-radius: var(--radius-md);
+    background: var(--surface-soft);
+    padding: 16px;
+    display: grid;
+    gap: 4px;
+}
+
+.stats strong {
+    font-size: 1.5rem;
+}
+
+.stats span {
+    color: var(--text-muted);
+    font-weight: 800;
+}
+
+.history {
+    display: grid;
+    gap: 14px;
+}
+
+.history h3 {
+    margin: 0;
+}
+
+.numberGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.numberGrid span {
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    background: var(--primary-soft);
+    color: var(--primary-dark);
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+}
+
+.modeGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.modeGrid button {
+    min-height: 48px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--text-muted);
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.modeGrid button:hover:not(:disabled) {
+    border-color: var(--primary);
+    color: var(--text-main);
+}
+
+.modeGrid button:disabled {
+    cursor: wait;
+    opacity: 0.75;
+}
+
+.activeMode {
+    background: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+}
+
+@media (max-width: 640px) {
+    .stats,
+        .modeGrid {
+            grid-template-columns: 1fr;
+        }
+}

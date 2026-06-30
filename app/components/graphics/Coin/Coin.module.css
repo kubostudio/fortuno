@@ -1,0 +1,125 @@
+.scene {
+    width: min(240px, 100%);
+    aspect-ratio: 1;
+    margin: 0 auto;
+    perspective: 1100px;
+    display: grid;
+    place-items: center;
+}
+
+.coin {
+    position: relative;
+    width: 196px;
+    height: 196px;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition: transform 420ms ease;
+}
+
+.face {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    backface-visibility: hidden;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 8px;
+    background:
+        radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.78), transparent 28%),
+        linear-gradient(145deg, #fef3c7, #f59e0b);
+    border: 10px solid #fde68a;
+    color: #78350f;
+    box-shadow:
+        0 24px 50px rgba(15, 23, 42, 0.18),
+        inset 0 8px 18px rgba(255, 255, 255, 0.45),
+        inset 0 -10px 18px rgba(120, 53, 15, 0.18);
+}
+
+.face::before {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border-radius: inherit;
+    border: 3px dashed rgba(120, 53, 15, 0.28);
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.mark,
+.star {
+    position: relative;
+    z-index: 2;
+    width: 58px;
+    height: 58px;
+    border-radius: 999px;
+    background: rgba(120, 53, 15, 0.12);
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    font-weight: 950;
+}
+
+.face strong,
+.face small {
+    position: relative;
+    z-index: 2;
+}
+
+.face strong {
+    font-size: 1.35rem;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+}
+
+.face small {
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+
+.resultCara {
+    transform: rotateY(0deg);
+}
+
+.resultSello {
+    transform: rotateY(180deg);
+}
+
+.flipping {
+    animation: coinFlip 2300ms cubic-bezier(.16, .72, .08, 1) forwards;
+}
+
+@keyframes coinFlip {
+    0% {
+        transform: rotateY(0deg) translateY(0) scale(1);
+    }
+
+    18% {
+        transform: rotateY(720deg) translateY(-44px) scale(1.04);
+    }
+
+    42% {
+        transform: rotateY(1620deg) translateY(-78px) scale(1.06);
+    }
+
+    66% {
+        transform: rotateY(2520deg) translateY(-30px) scale(1.02);
+    }
+
+    84% {
+        transform: rotateY(3240deg) translateY(10px) scale(.99);
+    }
+
+    93% {
+        transform: rotateY(3420deg) translateY(-6px) scale(1);
+    }
+
+    100% {
+        transform: rotateY(3600deg) translateY(0) scale(1);
+    }
+}

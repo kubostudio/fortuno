@@ -1,0 +1,59 @@
+.game {
+    display: grid;
+    gap: 24px;
+}
+
+.infoBox {
+    padding: 18px;
+    border-radius: var(--radius-md);
+    background: var(--surface-soft);
+    color: var(--text-muted);
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.infoBox strong {
+    color: var(--text-main);
+}
+
+.customGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.customGrid textarea {
+    width: 100%;
+    resize: vertical;
+    min-height: 120px;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.customGrid textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-soft);
+}
+
+.customGrid textarea:disabled {
+    background: var(--surface-soft);
+    cursor: wait;
+    opacity: 0.8;
+}
+
+.resultText {
+    margin: 0;
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+    .customGrid {
+        grid-template-columns: 1fr;
+    }
+}
