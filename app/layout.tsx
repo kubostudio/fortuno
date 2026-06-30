@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import Header from "@/app/components/layout/Header/Header";
 import Footer from "@/app/components/layout/Footer/Footer";
 import "./globals.css";
@@ -83,6 +84,16 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5001860173711402"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+
+        <Header />
+        {children}
+        <Footer />
         <Header />
         {children}
         <Footer />
