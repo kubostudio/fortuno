@@ -3,6 +3,7 @@ import Script from "next/script";
 import Header from "@/app/components/layout/Header/Header";
 import Footer from "@/app/components/layout/Footer/Footer";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fortuno.pe"),
@@ -96,11 +97,12 @@ export default function RootLayout({
         />
 
         <Header />
+
         {children}
+
         <Footer />
-        <Header />
-        {children}
-        <Footer />
+
+        <Analytics />
       </body>
     </html>
   );
