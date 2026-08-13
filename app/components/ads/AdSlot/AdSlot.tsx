@@ -10,8 +10,9 @@ export default function AdSlot({
     label = "Espacio para anuncio",
 }: AdSlotProps) {
     return (
-        <aside className={`${styles.adSlot} ${styles[variant]}`}>
-            <span>{label}</span>
-        </aside>
+        <br />
+        // <aside className={`${styles.adSlot} ${styles[variant]}`}>
+        //     <span>{label}</span>
+        // </aside>
     );
 }
