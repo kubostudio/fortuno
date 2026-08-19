@@ -58,7 +58,24 @@
     border-top: 1px solid var(--border);
     color: var(--text-muted);
     font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
 }
+
+.developerLink {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+.developerLink:hover {
+    color: var(--primary);
+}
+
 
 @media (max-width: 760px) {
     .inner {

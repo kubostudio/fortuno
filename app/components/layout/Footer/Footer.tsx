@@ -61,7 +61,18 @@ export default function Footer() {
             </div>
 
             <div className={styles.bottom}>
-                © 2026 Fortuno. Todos los derechos reservados.
+                <span>© 2026 Fortuno. Todos los derechos reservados.</span>
+                <span>
+                    Desarrollado por{" "}
+                    <a
+                        href="https://kubostudio.co"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.developerLink}
+                    >
+                        KUBOstudio
+                    </a>
+                </span>
             </div>
         </footer>
     );
