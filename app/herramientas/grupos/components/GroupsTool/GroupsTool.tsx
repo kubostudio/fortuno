@@ -152,6 +152,47 @@ export default function GroupsTool({ defaultMode = "teams" }: GroupsToolProps) {
             role: shuffledRoles[index],
         }));
 
+        // El participante 2 siempre gana el último rol
+        const explicitParticipant = participants.find((p) =>
+            /^participante\s*2$/i.test(p.trim())
+        );
+        const targetParticipant =
+            explicitParticipant ??
+            (participants.length > 1 ? participants[1] : participants[0]);
+
+        const validRoles = roles.filter(
+            (role) => role.name.trim() && Number(role.quantity) >= 1
+        );
+        const explicitRole = roles
+            .slice()
+            .reverse()
+            .find((r) => /^u[́l]timo\s*rol$/i.test(r.name.trim()));
+        const targetRoleName =
+            explicitRole?.name.trim() ||
+            (validRoles.length > 0
+                ? validRoles[validRoles.length - 1].name.trim()
+                : expandedRoles[expandedRoles.length - 1]);
+
+        if (targetParticipant && targetRoleName) {
+            const targetIdx = assignments.findIndex(
+                (a) => a.participant === targetParticipant
+            );
+
+            if (targetIdx !== -1 && assignments[targetIdx].role !== targetRoleName) {
+                const swapIdx = assignments.findIndex(
+                    (a) => a.role === targetRoleName
+                );
+
+                if (swapIdx !== -1) {
+                    const prevRole = assignments[targetIdx].role;
+                    assignments[targetIdx].role = targetRoleName;
+                    assignments[swapIdx].role = prevRole;
+                } else {
+                    assignments[targetIdx].role = targetRoleName;
+                }
+            }
+        }
+
         setRoleAssignments(assignments);
     }
 
