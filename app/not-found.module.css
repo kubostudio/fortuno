@@ -1,0 +1,466 @@
+/* ==========================================================================
+   Fortuno — Página 404 No Encontrado
+   ========================================================================== */
+
+.page {
+    min-height: 80vh;
+    padding: 3rem 1.5rem 6rem;
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   Hero 404
+   -------------------------------------------------------------------------- */
+.hero {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    position: relative;
+    padding: 2rem 1rem 1rem;
+}
+
+.glitchCode {
+    font-size: clamp(5.5rem, 14vw, 9.5rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    background: linear-gradient(135deg, #650bf5 0%, #4e1db9 35%, #4e1db9 65%, #650bf5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    user-select: none;
+    margin-bottom: -0.5rem;
+}
+
+.heroTitle {
+    font-size: clamp(1.85rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: #4e1db9;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.heroActions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.btnPrimary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #4e1db9;
+    color: #ffffff;
+    padding: 0.8rem 1.6rem;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 20px 60px #170f2a14;
+    transition: all 0.3s ease;
+}
+
+.btnPrimary:hover {
+    background: #fbb809;
+    color: black;
+}
+
+.btnSecondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: white;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    color: #2d116b;
+    padding: 0.8rem 1.6rem;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 20px 60px #170f2a14;
+}
+
+/* --------------------------------------------------------------------------
+   Sección: Sorteos Activos (Publicidad / Oportunidad)
+   -------------------------------------------------------------------------- */
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.sectionHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.sectionTag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: #f59e0b;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.sectionTitle {
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 800;
+    color: #f1f5f9;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.sectionDesc {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    margin: 0;
+}
+
+.giveawaysGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.giveawayCard {
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.giveawayCard:hover {
+    transform: translateY(-4px);
+    border-color: rgba(96, 165, 250, 0.5);
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.7), 0 0 24px rgba(59, 130, 246, 0.2);
+}
+
+.giveawayImageWrap {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background: #020617;
+}
+
+.giveawayImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.giveawayCard:hover .giveawayImg {
+    transform: scale(1.05);
+}
+
+.liveBadgeSmall {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background: rgba(16, 185, 129, 0.9);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.pulseDot {
+    width: 6px;
+    height: 6px;
+    background: #ffffff;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.3); }
+}
+
+.priceBadge {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: #fbbf24;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: 8px;
+    backdrop-filter: blur(6px);
+}
+
+.giveawayBody {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+}
+
+.giveawayTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin: 0;
+    line-height: 1.35;
+}
+
+.giveawaySubtitle {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.giveawayFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.ticketPriceTag {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    font-weight: 600;
+}
+
+.ticketPriceTag strong {
+    color: #38bdf8;
+    font-size: 1rem;
+}
+
+.participateAction {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #60a5fa;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Sección: Publicidad de Herramientas Gratuitas
+   -------------------------------------------------------------------------- */
+.toolsPromoBanner {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.4) 0%, rgba(15, 23, 42, 0.85) 60%, rgba(30, 27, 75, 0.4) 100%);
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    border-radius: 24px;
+    padding: clamp(1.75rem, 4vw, 2.75rem);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(2, 6, 23, 0.6);
+}
+
+.toolsPromoBanner::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.bannerTop {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.25rem;
+}
+
+.bannerInfo {
+    max-width: 620px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.freeTag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    color: #34d399;
+    padding: 0.3rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    width: fit-content;
+}
+
+.bannerTitle {
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.25;
+}
+
+.bannerDesc {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.btnAllTools {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #ffffff;
+    color: #0f172a;
+    padding: 0.75rem 1.4rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(255, 255, 255, 0.2);
+    white-space: nowrap;
+}
+
+.btnAllTools:hover {
+    background: #f1f5f9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+    color: #0f172a;
+}
+
+.toolsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+.toolCard {
+    background: rgba(15, 23, 42, 0.65);
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-radius: 16px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.toolCard:hover {
+    background: rgba(30, 41, 59, 0.75);
+    border-color: rgba(96, 165, 250, 0.4);
+    transform: translateY(-3px);
+}
+
+.toolIconWrap {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #60a5fa;
+    margin-bottom: 0.25rem;
+}
+
+.toolName {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toolArrow {
+    color: #64748b;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.toolCard:hover .toolArrow {
+    color: #60a5fa;
+    transform: translateX(4px);
+}
+
+.toolDesc {
+    font-size: 0.84rem;
+    color: #94a3b8;
+    line-height: 1.45;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+    .page {
+        padding: 2rem 1rem 4rem;
+        gap: 3rem;
+    }
+
+    .heroActions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .btnPrimary, .btnSecondary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .giveawaysGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .toolsGrid {
+        grid-template-columns: 1fr;
+    }
+}

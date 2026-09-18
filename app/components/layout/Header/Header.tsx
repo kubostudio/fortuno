@@ -1,106 +1,86 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import styles from "./Header.module.css";
 
-const toolGroups = [
-    {
-        title: "Generadores",
-        links: [
-            { label: "Número aleatorio", href: "/herramientas/numero-aleatorio" },
-            { label: "Letra aleatoria", href: "/herramientas/letra-aleatoria" },
-            { label: "Color aleatorio", href: "/herramientas/color-aleatorio" },
-        ],
-    },
-    {
-        title: "Sorteos",
-        links: [
-            { label: "Sorteos", href: "/herramientas/sorteos" },
-            { label: "Sorteo de nombres", href: "/herramientas/sorteo-de-nombres" },
-            { label: "Sorteo de premios", href: "/herramientas/sorteo-de-premios" },
-            { label: "Ruleta", href: "/herramientas/ruleta" },
-        ],
-    },
-    {
-        title: "Grupos",
-        links: [
-            { label: "Grupos aleatorios", href: "/herramientas/grupos" },
-            { label: "Formar equipos", href: "/herramientas/formar-equipos" },
-            { label: "Asignar roles", href: "/herramientas/asignar-roles" },
-            { label: "Amigo secreto", href: "/herramientas/amigo-secreto" },
-        ],
-    },
-    {
-        title: "Azar y juegos",
-        links: [
-            { label: "Azar rápido", href: "/herramientas/azar-rapido" },
-            { label: "Lanzar moneda", href: "/herramientas/lanzar-moneda" },
-            { label: "Lanzar dado", href: "/herramientas/lanzar-dado" },
-            { label: "Juegos", href: "/herramientas/juegos" },
-        ],
-    },
-];
-
 export default function Header() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const pathname = usePathname();
+    const [isCompact, setIsCompact] = useState(false);
+    const lastScrollY = useRef(0);
 
-    function closeMenu() {
-        setIsMenuOpen(false);
+    useEffect(() => {
+        lastScrollY.current = window.scrollY;
+
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            // When close to the top, restore full navbar
+            if (currentScrollY <= 20) {
+                setIsCompact(false);
+            } else if (currentScrollY > lastScrollY.current + 8) {
+                // Scrolling down -> compact navbar & hide logo
+                setIsCompact(true);
+            } else if (currentScrollY < lastScrollY.current - 8) {
+                // Scrolling up -> restore navbar & show logo
+                setIsCompact(false);
+            }
+
+            lastScrollY.current = currentScrollY;
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const isLivePage = Boolean(pathname && /\/sorteos\/[^/]+\/live(\/)?$/.test(pathname));
+    if (pathname?.startsWith("/sorteos/admin") || isLivePage) {
+        return null;
     }
 
-    return (
-        <header className={styles.header}>
-            <div className={styles.inner}>
-                <Link href="/" className={styles.logo} onClick={closeMenu}>
-                    Fortuno
-                </Link>
+    const isSorteosActive = pathname === "/sorteos" || pathname?.startsWith("/sorteos/");
+    const isHerramientasActive = pathname === "/herramientas" || pathname?.startsWith("/herramientas/");
+    const isComoFuncionaActive = pathname === "/como-funciona" || pathname?.startsWith("/como-funciona/");
+    const isProximamenteActive = pathname === "/proximamente" || pathname?.startsWith("/proximamente/");
 
+    return (
+        <header className={`${styles.header} ${isCompact ? styles.headerCompact : ""}`}>
+            <div className={`${styles.inner} ${isCompact ? styles.compact : ""}`}>
                 <nav className={styles.nav}>
-                    <Link href="/herramientas" onClick={closeMenu}>
+                    <Link
+                        href="/sorteos"
+                        className={`${styles.navLink} ${styles.sorteosLink} ${isSorteosActive ? styles.active : ""}`}
+                    >
+                        Sorteos
+                    </Link>
+
+                    <Link
+                        href="/herramientas"
+                        className={`${styles.navLink} ${isHerramientasActive ? styles.active : ""}`}
+                    >
                         Herramientas
                     </Link>
 
-                    <Link href="/como-funciona" onClick={closeMenu}>
+                    <div className={`${styles.logoContainer} ${isCompact ? styles.logoHidden : ""}`}>
+                        <Link href="/" className={styles.logo} aria-label="Inicio">
+                            <img src="/icon.png" alt="Fortuno" width={44} height={44} className={styles.logoImg} />
+                        </Link>
+                    </div>
+
+                    <Link
+                        href="/como-funciona"
+                        className={`${styles.navLink} ${isComoFuncionaActive ? styles.active : ""}`}
+                    >
                         Cómo funciona
                     </Link>
 
-                    <Link href="/proximamente" onClick={closeMenu}>
+                    <Link
+                        href="/proximamente"
+                        className={`${styles.navLink} ${isProximamenteActive ? styles.active : ""}`}
+                    >
                         Próximamente
                     </Link>
-
-                    <div className={styles.menuWrapper}>
-                        <button
-                            type="button"
-                            className={styles.menuButton}
-                            onClick={() => setIsMenuOpen((current) => !current)}
-                            aria-expanded={isMenuOpen}
-                        >
-                            Ver herramientas
-                        </button>
-
-                        {isMenuOpen && (
-                            <div className={styles.megaMenu}>
-                                {toolGroups.map((group) => (
-                                    <section key={group.title}>
-                                        <h3>{group.title}</h3>
-
-                                        <div>
-                                            {group.links.map((link) => (
-                                                <Link
-                                                    key={link.href}
-                                                    href={link.href}
-                                                    onClick={closeMenu}
-                                                >
-                                                    {link.label}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    </section>
-                                ))}
-                            </div>
-                        )}
-                    </div>
                 </nav>
             </div>
         </header>

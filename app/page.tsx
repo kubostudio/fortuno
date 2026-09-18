@@ -1,4 +1,8 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Link from "next/link";
+import confetti from "canvas-confetti";
 import styles from "./page.module.css";
 
 const categories = [
@@ -28,7 +32,6 @@ const categories = [
     href: "/herramientas/grupos",
     tools: [
       { title: "Formar equipos", href: "/herramientas/formar-equipos" },
-      { title: "Formar parejas", href: "/herramientas/formar-parejas" },
       { title: "Asignar roles", href: "/herramientas/asignar-roles" },
       { title: "Amigo secreto", href: "/herramientas/amigo-secreto" },
     ],
@@ -46,34 +49,105 @@ const categories = [
 ];
 
 export default function HomePage() {
+  const lastButtonHoverTime = useRef(0);
+  const cardRef = useRef<HTMLElement | null>(null);
+
+  const fireCardConfetti = (particleCount = 65) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = (rect.left + rect.width / 2) / window.innerWidth;
+    const y = (rect.top + rect.height / 2) / window.innerHeight;
+
+    confetti({
+      particleCount,
+      spread: 80,
+      startVelocity: 30,
+      origin: { x, y },
+      colors: ["#4e1db9", "#FBB809", "#16a34a", "#ec4899", "#3b82f6", "#f97316"],
+      disableForReducedMotion: true,
+      scalar: 0.8,
+    });
+  };
+
+  useEffect(() => {
+    // Se ejecuta al cargar la página
+    const timeout = setTimeout(() => {
+      fireCardConfetti(70);
+    }, 400);
+
+    // Se ejecuta periódicamente para mantener el dinamismo
+    const interval = setInterval(() => {
+      if (typeof document !== "undefined" && document.visibilityState === "visible") {
+        fireCardConfetti(35);
+      }
+    }, 5500);
+
+    return () => {
+      clearTimeout(timeout);
+      clearInterval(interval);
+    };
+  }, []);
+
+  function handleButtonHover(e: React.MouseEvent<HTMLElement>) {
+    const now = Date.now();
+    if (now - lastButtonHoverTime.current < 500) return;
+    lastButtonHoverTime.current = now;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (rect.left + rect.width / 2) / window.innerWidth;
+    const y = (rect.top + rect.height / 2) / window.innerHeight;
+
+    confetti({
+      particleCount: 55, // Más tupido
+      spread: 65,
+      startVelocity: 24,
+      origin: { x, y },
+      colors: ["#4e1db9", "#FBB809", "#16a34a", "#ec4899", "#3b82f6", "#f97316", "#a855f7"],
+      disableForReducedMotion: true,
+      scalar: 0.55, // Más pequeño
+      ticks: 120,
+    });
+  }
+
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
         <div className={styles.heroContent}>
-          <span className={styles.badge}>Gratis, rápido y sin registro</span>
+          <span className={styles.badge}>Sorteos en vivo y herramientas gratis</span>
 
-          <h1>Herramientas confiables para sorteos online</h1>
+          <h1>Sorteos online y herramientas de azar confiables</h1>
 
           <p>
-            Genera números aleatorios, crea ruletas, organiza sorteos pequeños
-            y prepara dinámicas para clases, grupos, campañas y eventos.
+            Participa en sorteos oficiales con tickets y resultados en vivo,
+            genera números aleatorios, crea ruletas interactivas y organiza
+            dinámicas para comunidades, eventos y marcas.
           </p>
 
           <div className={styles.heroActions}>
-            <Link href="/herramientas" className={styles.primaryButton}>
-              Ver herramientas gratis
+            <Link
+              href="/sorteos"
+              className={styles.primaryButton}
+              onMouseEnter={handleButtonHover}
+            >
+              Ver sorteos activos
             </Link>
-            <Link href="#futuro" className={styles.secondaryButton}>
-              Ver plataforma futura
+            <Link href="/herramientas" className={styles.secondaryButton}>
+              Ver herramientas gratis
             </Link>
           </div>
         </div>
 
-        <aside className={styles.heroCard}>
-          <p className={styles.cardLabel}>Ejemplo rápido</p>
-          <strong>Ganador elegido</strong>
-          <span>Participante #18</span>
-        </aside>
+        <div className={styles.heroCardWrapper}>
+          <aside
+            ref={cardRef}
+            className={styles.heroCard}
+            onClick={() => fireCardConfetti(50)}
+          >
+            <p className={styles.cardLabel}>Sorteo en vivo</p>
+            <strong>Ganador elegido</strong>
+            <span>Ticket FORT001482 🎉</span>
+          </aside>
+        </div>
       </section>
 
       <section id="herramientas" className={styles.section}>
@@ -115,45 +189,42 @@ export default function HomePage() {
           <span>Experiencia simple</span>
           <h2>Diseñado para no complicarte</h2>
           <p>
-            Fortuno prioriza que puedas realizar un sorteo en pocos segundos,
-            sin formularios innecesarios ni anuncios invasivos.
+            Fortuno combina la emoción de sorteos en directo con herramientas de azar
+            inmediatas, sin formularios innecesarios ni publicidad invasiva.
           </p>
         </div>
 
         <div className={styles.benefitGrid}>
           <article>
-            <h3>Sin registro</h3>
-            <p>Las herramientas gratuitas estarán disponibles al instante.</p>
+            <h3>Herramientas sin registro</h3>
+            <p>Generadores, ruletas y utilidades 100% gratuitas listas para usar al instante.</p>
           </article>
 
           <article>
-            <h3>Diseño claro</h3>
-            <p>Botones visibles, resultados destacados y uso intuitivo.</p>
+            <h3>Sorteos transparentes</h3>
+            <p>Participa en sorteos verificados, adquiere tus tickets y sigue las transmisiones en vivo.</p>
           </article>
 
           <article>
-            <h3>Preparado para crecer</h3>
+            <h3>Resultados al instante</h3>
             <p>
-              Más adelante Fortuno permitirá crear sorteos profesionales,
-              campañas y rifas.
+              Diseño intuitivo con algoritmos aleatorios seguros y ganadores destacados en tiempo real.
             </p>
           </article>
         </div>
       </section>
 
-      <section id="futuro" className={styles.futureSection}>
+      <section id="sorteos" className={styles.futureSection}>
         <div>
-          <span>Próximamente</span>
-          <h2>Sorteos profesionales con Fortuno</h2>
+          <span>Nuevo</span>
+          <h2>Participa en nuestros sorteos</h2>
           <p>
-            En el futuro podrás crear sorteos públicos, vender participaciones,
-            gestionar campañas y realizar rifas con una experiencia más
-            transparente y profesional.
+            Elige el sorteo que más te guste, adquiere tus tickets en segundos y sigue los resultados en vivo con total transparencia y seguridad.
           </p>
         </div>
 
-        <Link href="/" className={styles.primaryButton}>
-          Mantenerme informado
+        <Link href="/sorteos" className={styles.primaryButton}>
+          Ver sorteos
         </Link>
       </section>
     </main>

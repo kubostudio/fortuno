@@ -89,15 +89,18 @@
     min-height: 48px;
     padding: 0 16px;
     border-radius: var(--radius-md);
-    background: var(--surface-soft);
+    background: var(--primary-soft);
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-weight: 800;
+    color: var(--primary-dark);
+    transition: all .3s;
 }
 
 .toolList a:hover {
-    color: var(--primary);
+    color: black;
+    background: var(--yellow);
 }
 
 @media (max-width: 760px) {

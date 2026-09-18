@@ -6,12 +6,16 @@
   --text-main: #0f172a;
   --text-muted: #64748b;
   --text-soft: #94a3b8;
+  --text-semi-dark: #dcdfe4;
 
-  --primary: #1d4ed8;
-  --primary-dark: #1e40af;
-  --primary-soft: #dbeafe;
+  --primary: #4e1db9;
+  --primary-dark: #2d116b;
+  --primary-light: #370f92;
+  --primary-soft: #ede8f8;
+  --primary-ultra: #150043;
+  --yellow: #FBB809;
 
-  --border: #e2e8f0;
+  --border: #e2e8f07a;
   --success: #16a34a;
   --warning: #f59e0b;
   --danger: #dc2626;
@@ -20,7 +24,8 @@
   --radius-md: 16px;
   --radius-lg: 24px;
 
-  --shadow-soft: 0 20px 60px rgba(15, 23, 42, 0.08);
+  --shadow-soft2: 0 20px 60px #4e1db9;
+  --shadow-soft: 0 20px 60px rgba(23, 15, 42, 0.08);
 }
 
 * {
@@ -33,9 +38,10 @@ html {
 
 body {
   margin: 0;
-  background: var(--background);
+  /* background: var(--background); */
+  background: url("/background.jpeg");
   color: var(--text-main);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-plus-jakarta-sans), "Plus Jakarta Sans", sans-serif;
 }
 
 a {
@@ -47,4 +53,25 @@ button,
 input,
 textarea {
   font: inherit;
+}
+
+/* Global Scroll Reveal Animations */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
