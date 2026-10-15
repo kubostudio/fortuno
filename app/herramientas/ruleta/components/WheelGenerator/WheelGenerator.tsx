@@ -33,8 +33,14 @@ export default function WheelGenerator() {
 
         const winnerIndex = Math.floor(Math.random() * participants.length);
         const targetAngle = winnerIndex * segmentAngle + segmentAngle / 2;
+        const currentAngle = rotation % 360;
+        const desiredModulo = (360 - (targetAngle % 360)) % 360;
+        let delta = (desiredModulo - currentAngle) % 360;
+        if (delta < 0) {
+            delta += 360;
+        }
         const extraTurns = 6 + Math.floor(Math.random() * 4);
-        const newRotation = rotation + extraTurns * 360 + (360 - targetAngle);
+        const newRotation = rotation + extraTurns * 360 + delta;
 
         setError("");
         setWinner("");

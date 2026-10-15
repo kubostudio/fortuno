@@ -12,7 +12,6 @@ const categories = [
     {
         title: "Generadores",
         tools: [
-            { title: "Generadores aleatorios", href: "/herramientas/generadores" },
             { title: "Número aleatorio", href: "/herramientas/numero-aleatorio" },
             { title: "Letra aleatoria", href: "/herramientas/letra-aleatoria" },
             { title: "Color aleatorio", href: "/herramientas/color-aleatorio" },
@@ -21,7 +20,6 @@ const categories = [
     {
         title: "Sorteos",
         tools: [
-            { title: "Sorteos aleatorios", href: "/herramientas/sorteos" },
             { title: "Sorteo de nombres", href: "/herramientas/sorteo-de-nombres" },
             { title: "Sorteo de premios", href: "/herramientas/sorteo-de-premios" },
             { title: "Ruleta de nombres", href: "/herramientas/ruleta" },
@@ -30,7 +28,6 @@ const categories = [
     {
         title: "Grupos",
         tools: [
-            { title: "Grupos aleatorios", href: "/herramientas/grupos" },
             { title: "Formar equipos", href: "/herramientas/formar-equipos" },
             { title: "Asignar roles", href: "/herramientas/asignar-roles" },
             { title: "Amigo secreto", href: "/herramientas/amigo-secreto" },
@@ -39,9 +36,10 @@ const categories = [
     {
         title: "Azar y juegos",
         tools: [
-            { title: "Lanzar moneda", href: "/herramientas/lanzar-moneda" },
+            { title: "Piedra, papel o tijera", href: "/herramientas/piedra-papel-o-tijera" },
+            { title: "Verdad o reto", href: "/herramientas/verdad-o-reto" },
+            { title: "Bingo", href: "/herramientas/bingo" },
             { title: "Lanzar dado", href: "/herramientas/lanzar-dado" },
-            { title: "Juegos aleatorios", href: "/herramientas/juegos" },
         ],
     },
 ];

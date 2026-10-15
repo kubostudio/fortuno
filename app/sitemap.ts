@@ -22,6 +22,9 @@ const routes = [
     "/herramientas/lanzar-moneda",
     "/herramientas/lanzar-dado",
     "/herramientas/juegos",
+    "/herramientas/bingo",
+    "/herramientas/piedra-papel-o-tijera",
+    "/herramientas/verdad-o-reto",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

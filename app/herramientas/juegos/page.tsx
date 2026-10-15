@@ -37,12 +37,16 @@ export default function JuegosPage() {
             ]}
             relatedTools={[
                 {
-                    title: "Generadores aleatorios",
-                    href: "/herramientas/generadores",
+                    title: "Piedra, papel o tijera",
+                    href: "/herramientas/piedra-papel-o-tijera",
                 },
                 {
-                    title: "Sorteos aleatorios",
-                    href: "/herramientas/sorteos",
+                    title: "Bingo virtual",
+                    href: "/herramientas/bingo",
+                },
+                {
+                    title: "Verdad o reto",
+                    href: "/herramientas/verdad-o-reto",
                 },
             ]}
         >
