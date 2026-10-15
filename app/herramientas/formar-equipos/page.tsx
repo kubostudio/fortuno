@@ -24,8 +24,8 @@ export default function FormarEquiposPage() {
                 },
             ]}
             relatedTools={[
-                { title: "Formar parejas", href: "/herramientas/formar-parejas" },
                 { title: "Asignar roles", href: "/herramientas/asignar-roles" },
+                { title: "Amigo secreto", href: "/herramientas/amigo-secreto" },
             ]}
         >
             <GroupsTool defaultMode="teams" />

@@ -7,9 +7,9 @@
   --text-muted: #64748b;
   --text-soft: #94a3b8;
 
-  --primary: #1d4ed8;
-  --primary-dark: #1e40af;
-  --primary-soft: #dbeafe;
+  --primary: #4e1db9;
+  --primary-dark: #2d116b;
+  --primary-soft: #ede8f8;
 
   --border: #e2e8f0;
   --success: #16a34a;
@@ -20,7 +20,7 @@
   --radius-md: 16px;
   --radius-lg: 24px;
 
-  --shadow-soft: 0 20px 60px rgba(15, 23, 42, 0.08);
+  --shadow-soft: 0 20px 60px #170f2a14;
 }
 
 * {

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ToolLayout from "@/app/components/layout/ToolLayout/ToolLayout";
+import GameTabs from "@/app/herramientas/juegos/components/GameTabs/GameTabs";
 import TruthOrDare from "@/app/herramientas/juegos/components/TruthOrDare/TruthOrDare";
 
 export const metadata: Metadata = {
@@ -50,6 +51,7 @@ export default function VerdadORetoPage() {
                 },
             ]}
         >
+            <GameTabs activeTab="truthOrDare" />
             <TruthOrDare />
         </ToolLayout>
     );

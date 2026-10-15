@@ -25,7 +25,7 @@ export default function SorteoDeNombresPage() {
             ]}
             relatedTools={[
                 { title: "Sorteo de premios", href: "/herramientas/sorteo-de-premios" },
-                { title: "Sorteos aleatorios", href: "/herramientas/sorteos" },
+                { title: "Ruleta de nombres", href: "/herramientas/ruleta" },
             ]}
         >
             <DrawsTool defaultMode="names" />

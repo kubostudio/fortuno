@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ToolLayout from "@/app/components/layout/ToolLayout/ToolLayout";
+import DrawTabs from "@/app/herramientas/sorteos/components/DrawTabs/DrawTabs";
 import WheelGenerator from "./components/WheelGenerator/WheelGenerator";
 
 export const metadata: Metadata = {
@@ -41,11 +42,12 @@ export default function RuletaPage() {
                     href: "/herramientas/sorteo-de-nombres",
                 },
                 {
-                    title: "Número aleatorio",
-                    href: "/herramientas/numero-aleatorio",
+                    title: "Sorteo de premios",
+                    href: "/herramientas/sorteo-de-premios",
                 },
             ]}
         >
+            <DrawTabs activeTab="wheel" />
             <WheelGenerator />
         </ToolLayout>
     );

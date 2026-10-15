@@ -24,7 +24,7 @@ export default function AsignarRolesPage() {
             ]}
             relatedTools={[
                 { title: "Formar equipos", href: "/herramientas/formar-equipos" },
-                { title: "Formar parejas", href: "/herramientas/formar-parejas" },
+                { title: "Amigo secreto", href: "/herramientas/amigo-secreto" },
             ]}
         >
             <GroupsTool defaultMode="roles" />

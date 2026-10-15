@@ -91,7 +91,7 @@
 .primaryButton {
     background: var(--primary);
     color: white;
-    box-shadow: 0 14px 30px rgba(29, 78, 216, 0.22);
+    box-shadow: 0 14px 30px #170f2a14;
 }
 
 .primaryButton:hover {
@@ -124,7 +124,7 @@
 }
 
 .heroCard span {
-    color: var(--success);
+    color: var(--primary);
     font-weight: 800;
     font-size: 1.4rem;
 }
@@ -273,8 +273,8 @@
 .categoryLinks a {
     padding: 8px 12px;
     border-radius: 999px;
-    background: var(--surface-soft);
-    color: var(--text-muted);
+    background: var(--primary-soft);
+    color: var(--primary-dark);
     font-weight: 800;
     font-size: 0.9rem;
 }

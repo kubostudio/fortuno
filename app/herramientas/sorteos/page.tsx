@@ -37,12 +37,16 @@ export default function SorteosPage() {
             ]}
             relatedTools={[
                 {
-                    title: "Ruleta de nombres",
-                    href: "/herramientas/ruleta",
+                    title: "Sorteo de nombres",
+                    href: "/herramientas/sorteo-de-nombres",
                 },
                 {
-                    title: "Generadores aleatorios",
-                    href: "/herramientas/generadores",
+                    title: "Sorteo de premios",
+                    href: "/herramientas/sorteo-de-premios",
+                },
+                {
+                    title: "Ruleta de nombres",
+                    href: "/herramientas/ruleta",
                 },
             ]}
         >

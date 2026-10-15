@@ -37,12 +37,16 @@ export default function GeneradoresPage() {
             ]}
             relatedTools={[
                 {
-                    title: "Ruleta de nombres",
-                    href: "/herramientas/ruleta",
+                    title: "Número aleatorio",
+                    href: "/herramientas/numero-aleatorio",
                 },
                 {
-                    title: "Sorteos",
-                    href: "/herramientas/sorteos",
+                    title: "Letra aleatoria",
+                    href: "/herramientas/letra-aleatoria",
+                },
+                {
+                    title: "Color aleatorio",
+                    href: "/herramientas/color-aleatorio",
                 },
             ]}
         >

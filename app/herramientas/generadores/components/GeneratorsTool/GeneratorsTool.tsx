@@ -9,6 +9,7 @@ import ResultCard from "@/app/components/ui/ResultCard/ResultCard";
 
 import { useCopyToClipboard } from "@/app/hooks/useCopyToClipboard";
 import { getRandomInteger, pickRandomItem } from "@/app/lib/random";
+import GeneratorTabs from "../GeneratorTabs/GeneratorTabs";
 
 import styles from "./GeneratorsTool.module.css";
 
@@ -23,7 +24,7 @@ const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 export default function GeneratorsTool({
     defaultMode = "number",
 }: GeneratorsToolProps) {
-    const [mode, setMode] = useState<GeneratorMode>(defaultMode);
+    const mode = defaultMode;
     const [min, setMin] = useState("1");
     const [max, setMax] = useState("100");
     const [result, setResult] = useState("");
@@ -90,43 +91,7 @@ export default function GeneratorsTool({
 
     return (
         <div className={styles.tool}>
-            <div className={styles.modeGrid}>
-                <button
-                    className={mode === "number" ? styles.activeMode : ""}
-                    onClick={() => {
-                        setMode("number");
-                        setResult("");
-                        setError("");
-                    }}
-                    type="button"
-                >
-                    Número
-                </button>
-
-                <button
-                    className={mode === "letter" ? styles.activeMode : ""}
-                    onClick={() => {
-                        setMode("letter");
-                        setResult("");
-                        setError("");
-                    }}
-                    type="button"
-                >
-                    Letra
-                </button>
-
-                <button
-                    className={mode === "color" ? styles.activeMode : ""}
-                    onClick={() => {
-                        setMode("color");
-                        setResult("");
-                        setError("");
-                    }}
-                    type="button"
-                >
-                    Color
-                </button>
-            </div>
+            <GeneratorTabs activeTab={defaultMode} />
 
             {mode === "number" && (
                 <div className={styles.fields}>

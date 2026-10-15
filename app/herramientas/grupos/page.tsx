@@ -37,12 +37,16 @@ export default function GruposPage() {
             ]}
             relatedTools={[
                 {
-                    title: "Sorteos aleatorios",
-                    href: "/herramientas/sorteos",
+                    title: "Formar equipos",
+                    href: "/herramientas/formar-equipos",
                 },
                 {
-                    title: "Ruleta de nombres",
-                    href: "/herramientas/ruleta",
+                    title: "Asignar roles",
+                    href: "/herramientas/asignar-roles",
+                },
+                {
+                    title: "Amigo secreto",
+                    href: "/herramientas/amigo-secreto",
                 },
             ]}
         >

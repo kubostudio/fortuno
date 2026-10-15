@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ToolLayout from "@/app/components/layout/ToolLayout/ToolLayout";
+import GameTabs from "@/app/herramientas/juegos/components/GameTabs/GameTabs";
 import RockPaperScissors from "@/app/herramientas/juegos/components/RockPaperScissors/RockPaperScissors";
 
 export const metadata: Metadata = {
@@ -50,6 +51,7 @@ export default function PiedraPapelOTijeraPage() {
                 },
             ]}
         >
+            <GameTabs activeTab="rps" />
             <RockPaperScissors />
         </ToolLayout>
     );

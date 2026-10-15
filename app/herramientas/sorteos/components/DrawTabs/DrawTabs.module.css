@@ -1,0 +1,52 @@
+.modeGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.modeLink {
+    min-height: 48px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--text-muted);
+    font-weight: 800;
+    font-size: 0.95rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8px 16px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.modeLink:hover {
+    border-color: var(--primary);
+    color: var(--text-main);
+}
+
+.activeMode {
+    min-height: 48px;
+    border: 1px solid var(--primary);
+    border-radius: 999px;
+    background: var(--primary);
+    color: white;
+    font-weight: 800;
+    font-size: 0.95rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8px 16px;
+    cursor: default;
+}
+
+@media (max-width: 640px) {
+    .modeGrid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -40,6 +40,7 @@ const categories = [
             { title: "Verdad o reto", href: "/herramientas/verdad-o-reto" },
             { title: "Bingo", href: "/herramientas/bingo" },
             { title: "Lanzar dado", href: "/herramientas/lanzar-dado" },
+            { title: "Lanzar moneda", href: "/herramientas/lanzar-moneda" }
         ],
     },
 ];

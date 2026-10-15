@@ -9,6 +9,7 @@ import ResultCard from "@/app/components/ui/ResultCard/ResultCard";
 import { useCopyToClipboard } from "@/app/hooks/useCopyToClipboard";
 import { parseLines, shuffleArray } from "@/app/lib/random";
 import RoleEditor, { type RoleItem } from "../RoleEditor/RoleEditor";
+import GroupTabs from "../GroupTabs/GroupTabs";
 
 import styles from "./GroupsTool.module.css";
 
@@ -24,7 +25,7 @@ type GroupsToolProps = {
 };
 
 export default function GroupsTool({ defaultMode = "teams" }: GroupsToolProps) {
-    const [mode, setMode] = useState<GroupMode>(defaultMode);
+    const mode = defaultMode;
     const [participantsText, setParticipantsText] = useState(
         "Ana\nLuis\nMaría\nCarlos\nLucía\nPedro"
     );
@@ -59,11 +60,6 @@ export default function GroupsTool({ defaultMode = "teams" }: GroupsToolProps) {
         setGroups([]);
         setRoleAssignments([]);
         setError("");
-    }
-
-    function changeMode(nextMode: GroupMode) {
-        setMode(nextMode);
-        resetResults();
     }
 
     function generateGroups() {
@@ -224,23 +220,7 @@ export default function GroupsTool({ defaultMode = "teams" }: GroupsToolProps) {
 
     return (
         <div className={styles.tool}>
-            <div className={styles.modeGrid}>
-                <button
-                    type="button"
-                    className={mode === "teams" ? styles.activeMode : ""}
-                    onClick={() => changeMode("teams")}
-                >
-                    Equipos
-                </button>
-
-                <button
-                    type="button"
-                    className={mode === "roles" ? styles.activeMode : ""}
-                    onClick={() => changeMode("roles")}
-                >
-                    Roles
-                </button>
-            </div>
+            <GroupTabs activeTab={defaultMode} />
 
             <FormField label="Participantes" hint="Escribe un nombre por línea.">
                 <textarea

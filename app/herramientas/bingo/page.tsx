@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ToolLayout from "@/app/components/layout/ToolLayout/ToolLayout";
+import GameTabs from "@/app/herramientas/juegos/components/GameTabs/GameTabs";
 import Bingo from "@/app/herramientas/juegos/components/Bingo/Bingo";
 
 export const metadata: Metadata = {
@@ -55,6 +56,7 @@ export default function BingoPage() {
                 },
             ]}
         >
+            <GameTabs activeTab="bingo" />
             <Bingo />
         </ToolLayout>
     );

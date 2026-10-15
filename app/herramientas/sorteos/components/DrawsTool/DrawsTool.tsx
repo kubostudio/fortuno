@@ -8,6 +8,7 @@ import FormField from "@/app/components/ui/FormField/FormField";
 import ResultCard from "@/app/components/ui/ResultCard/ResultCard";
 import { useCopyToClipboard } from "@/app/hooks/useCopyToClipboard";
 import { parseLines, pickUniqueItems } from "@/app/lib/random";
+import DrawTabs from "../DrawTabs/DrawTabs";
 
 import styles from "./DrawsTool.module.css";
 
@@ -18,7 +19,7 @@ type DrawsToolProps = {
 };
 
 export default function DrawsTool({ defaultMode = "names" }: DrawsToolProps) {
-    const [mode, setMode] = useState<DrawMode>(defaultMode);
+    const mode = defaultMode;
     const [participantsText, setParticipantsText] = useState(
         "Ana\nLuis\nMaría\nCarlos\nLucía"
     );
@@ -48,11 +49,6 @@ export default function DrawsTool({ defaultMode = "names" }: DrawsToolProps) {
         setResults([]);
         setPrizeResults([]);
         setError("");
-    }
-
-    function changeMode(nextMode: DrawMode) {
-        setMode(nextMode);
-        resetResults();
     }
 
     function draw() {
@@ -157,23 +153,7 @@ export default function DrawsTool({ defaultMode = "names" }: DrawsToolProps) {
 
     return (
         <div className={styles.tool}>
-            <div className={styles.modeGrid}>
-                <button
-                    type="button"
-                    className={mode === "names" ? styles.activeMode : ""}
-                    onClick={() => changeMode("names")}
-                >
-                    Nombres
-                </button>
-
-                <button
-                    type="button"
-                    className={mode === "prizes" ? styles.activeMode : ""}
-                    onClick={() => changeMode("prizes")}
-                >
-                    Premios
-                </button>
-            </div>
+            <DrawTabs activeTab={defaultMode} />
 
             <FormField label="Participantes" hint="Escribe un nombre por línea.">
                 <textarea

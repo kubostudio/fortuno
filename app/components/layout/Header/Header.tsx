@@ -16,7 +16,6 @@ const toolGroups = [
     {
         title: "Sorteos",
         links: [
-            { label: "Sorteos", href: "/herramientas/sorteos" },
             { label: "Sorteo de nombres", href: "/herramientas/sorteo-de-nombres" },
             { label: "Sorteo de premios", href: "/herramientas/sorteo-de-premios" },
             { label: "Ruleta", href: "/herramientas/ruleta" },
@@ -25,7 +24,6 @@ const toolGroups = [
     {
         title: "Grupos",
         links: [
-            { label: "Grupos aleatorios", href: "/herramientas/grupos" },
             { label: "Formar equipos", href: "/herramientas/formar-equipos" },
             { label: "Asignar roles", href: "/herramientas/asignar-roles" },
             { label: "Amigo secreto", href: "/herramientas/amigo-secreto" },
@@ -34,7 +32,9 @@ const toolGroups = [
     {
         title: "Azar y juegos",
         links: [
-            { label: "Azar rápido", href: "/herramientas/azar-rapido" },
+            { label: "Piedra, papel o tijera", href: "/herramientas/piedra-papel-o-tijera" },
+            { label: "Verdad o reto", href: "/herramientas/verdad-o-reto" },
+            { label: "Bingo", href: "/herramientas/bingo" },
             { label: "Lanzar moneda", href: "/herramientas/lanzar-moneda" },
             { label: "Lanzar dado", href: "/herramientas/lanzar-dado" },
             { label: "Juegos", href: "/herramientas/juegos" },
@@ -57,10 +57,6 @@ export default function Header() {
                 </Link>
 
                 <nav className={styles.nav}>
-                    <Link href="/herramientas" onClick={closeMenu}>
-                        Herramientas
-                    </Link>
-
                     <Link href="/como-funciona" onClick={closeMenu}>
                         Cómo funciona
                     </Link>

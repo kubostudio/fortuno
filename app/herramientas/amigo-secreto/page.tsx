@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ToolLayout from "@/app/components/layout/ToolLayout/ToolLayout";
+import GroupTabs from "@/app/herramientas/grupos/components/GroupTabs/GroupTabs";
 import SecretFriendGenerator from "./components/SecretFriendGenerator/SecretFriendGenerator";
 
 export const metadata: Metadata = {
@@ -37,15 +38,16 @@ export default function AmigoSecretoPage() {
             ]}
             relatedTools={[
                 {
-                    title: "Ruleta de nombres",
-                    href: "/herramientas/ruleta",
+                    title: "Formar equipos",
+                    href: "/herramientas/formar-equipos",
                 },
                 {
-                    title: "Sorteo de nombres",
-                    href: "/herramientas/sorteo-de-nombres",
+                    title: "Asignar roles",
+                    href: "/herramientas/asignar-roles",
                 },
             ]}
         >
+            <GroupTabs activeTab="secretFriend" />
             <SecretFriendGenerator />
         </ToolLayout>
     );
